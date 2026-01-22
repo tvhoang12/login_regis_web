@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  .container.d-flex.justify-content-center.align-items-center.min-vh-100
+    .card.shadow-lg(style='width: 100%; max-width: 400px;')
+      .card-body.p-5
+        h1.text-center.mb-4.text-primary #{title}
+        form#loginForm(method='post', action='/login')
+          .mb-3
+            label.form-label(for='email') Email Address
+            input#email.form-control(type='email', name='email', placeholder='Enter your email', required)
+          
+          .mb-3
+            label.form-label(for='password') Password
+            input#password.form-control(type='password', name='password', placeholder='Enter your password', required)
+          
+          .mb-3.form-check
+            input#rememberMe.form-check-input(type='checkbox', name='rememberMe')
+            label.form-check-label(for='rememberMe') Remember me
+          
+          button.btn.btn-primary.w-100.mb-3(type='submit') Login
+          
+          .text-center.mb-3
+            a(href='#') Forgot your password?
+          
+          .text-center
+            p.text-muted Don't have an account?
+              a(href='/signup')  Sign Up

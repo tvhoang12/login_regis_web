@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  .container.d-flex.justify-content-center.align-items-center.min-vh-100
+    .card.shadow-lg(style='width: 100%; max-width: 450px;')
+      .card-body.p-5
+        h1.text-center.mb-4.text-primary Register
+        
+        form#registerForm(method='post', action='/auth')
+          .mb-3
+            label.form-label(for='fullname') Full Name
+            input#fullname.form-control(type='text', name='fullname', placeholder='Enter your full name', required)
+          
+          .mb-3
+            label.form-label(for='email') Email Address
+            input#email.form-control(type='email', name='email', placeholder='Enter your email', required)
+          
+          .mb-3
+            label.form-label(for='password') Password
+            input#password.form-control(type='password', name='password', placeholder='Enter your password', required)
+          
+          .mb-3
+            label.form-label(for='confirmPassword') Confirm Password
+            input#confirmPassword.form-control(type='password', name='confirmPassword', placeholder='Confirm your password', required)
+          
+          .mb-3.form-check
+            input#agreeTerms.form-check-input(type='checkbox', name='agreeTerms', required)
+            label.form-check-label(for='agreeTerms') I agree to the Terms and Conditions
+          
+          button.btn.btn-primary.w-100.mb-3(type='submit') Register
+          
+          .text-center
+            p.text-muted Already have an account?
+              a(href='/login')  Login Here

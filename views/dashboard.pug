@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  nav.navbar.navbar-dark.bg-primary.mb-4
+    .container-fluid
+      span.navbar-brand.mb-0.h1 Dashboard
+      .navbar-text.text-white
+        | Welcome, 
+        strong= username
+        |  
+        a.btn.btn-outline-light.btn-sm.ms-3(href='/logout') Logout
+
+  .container
+    .row
+      .col-md-4.mb-4
+        .card.shadow-sm
+          .card-body
+            h5.card-title Profile
+            p.card-text Manage your profile information
+            a.btn.btn-primary(href='#') Edit Profile
+
+      .col-md-4.mb-4
+        .card.shadow-sm
+          .card-body
+            h5.card-title Settings
+            p.card-text Update your account settings
+            a.btn.btn-primary(href='#') Go to Settings
+
+      .col-md-4.mb-4
+        .card.shadow-sm
+          .card-body
+            h5.card-title Help
+            p.card-text Get help and support
+            a.btn.btn-primary(href='#') Get Help
+
+    .row.mt-4
+      .col-12
+        .card.shadow-sm
+          .card-header.bg-light
+            h5.mb-0 Recent Activity
+          .card-body
+            p You logged in at #{new Date().toLocaleString()}
+            p This is your dashboard. Add your content here!
