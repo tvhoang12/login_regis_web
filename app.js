@@ -19,10 +19,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+const session = require('express-session');
+//configure session middleware
 
-app.use('/', indexRouter);           // All routes in indexRouter (/, /login, /register, etc.)
-app.use('/users', usersRouter);      // All routes starting with /users
-app.use('/auth', registerRouter);    // All routes in registerRouter starting with /auth
+app.use(session({
+  secret: 'HoangTV',
+  resave:false,
+  saveUninitialized:true,
+  cookie:{ maxAge: 60000 * 60 } //session timeout 1 hour
+}));
+
+app.use('/', indexRouter);           
+app.use('/users', usersRouter);    
+app.use('/auth', registerRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -40,15 +49,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-const session = require('express-session');
-//configure session middleware
-
-app.use(session({
-  secret: 'HoangTV',
-  resave:false,
-  saveUninitialized:true,
-  cookie:{ maxAge: 60000 * 60 } //session timeout 1 hour
-}));
 
 const requireLogin = (req, res, next) => {
   if(req.session && req.session.user) {
