@@ -1,3 +1,12 @@
+# NodeJS_Study
+hoang studying nodejs by creating an login and register for a dashboard
+
+# Technology
+
+using nodejs(framework express, express-session) for backend
+using template engine(pug) for frontend(generate by claude)
+
+
 # Login App - NodeJS Study Project
 
 A full-stack web application built with Node.js, Express, and Pug for learning purposes.
